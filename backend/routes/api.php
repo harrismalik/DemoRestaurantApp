@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ListingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -52,4 +53,13 @@ Route::prefix('admin')->group(function () {
             Route::delete('{id}', [AdminController::class,'deleteMenuItem']);
         });
     });
+});
+
+// Booking Routes
+Route::post('bookings/new',[BookingController::class,'createNewBooking'])->middleware('auth:api');
+
+// Listing Routes
+Route::prefix('listing')->group(function () {
+    Route::get('{date}/tables',[ListingController::class,'fetchTablesByDate']);
+    Route::get('menu',[ListingController::class,'fetchMenuList']);
 });
