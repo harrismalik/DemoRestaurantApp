@@ -62,4 +62,5 @@ Route::post('bookings/new',[BookingController::class,'createNewBooking'])->middl
 Route::prefix('listing')->group(function () {
     Route::get('{date}/tables',[ListingController::class,'fetchTablesByDate']);
     Route::get('menu',[ListingController::class,'fetchMenuList']);
+    Route::get('slots',[ListingController::class,'getSlots']);
 });

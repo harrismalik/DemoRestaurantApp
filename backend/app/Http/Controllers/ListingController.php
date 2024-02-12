@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class ListingController extends BaseAPIController
 {
     public function getSlots() : JsonResponse {
-        $slots = Slot::all();
+        $slots = Slot::orderBy('start_time')->get();
         return $this->sendResponse(['slots' => $slots],'Fetched available slots');
     }
 
