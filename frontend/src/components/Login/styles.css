@@ -1,0 +1,32 @@
+.login-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 26vh;
+    animation: slideDown 0.5s ease-out;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form input {
+    border: none;
+    border-radius: 40px;
+    margin: 8px 0;
+    line-height: 1.2rem;
+    font-size: 1rem;
+    padding: 8px 16px;
+    width: 100%;
+}
+
+.login-form button {
+    border: none;
+    border-radius: 40px;
+    margin: 8px 0;
+    line-height: 1.2rem;
+    font-size: 1rem;
+    padding: 8px 16px;
+    width: 100%;
+}

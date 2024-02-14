@@ -14,7 +14,6 @@ export default function NavBar() {
                     <li>DemoApp</li>
                 </ul>
 
-                {/* Hamburger icon for mobile view */}
                 <div className={`hamburger ${isMobileMenuOpen ? 'show-mobile-menu' : ''}`} onClick={toggleMobileMenu}>
                     <div className="bar"></div>
                     <div className="bar"></div>

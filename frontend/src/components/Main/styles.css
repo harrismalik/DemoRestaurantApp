@@ -15,7 +15,7 @@ body {
     background-position: bottom;
     background-blend-mode: darken;
     animation: brighten 1.5s ease-out;
-    box-shadow: inset 0 0 400px 170px rgba(0, 0, 0, .7);
+    box-shadow: inset 0 0 400px 350px rgba(0, 0, 0, .7);
 }
 
 @keyframes slideDown {
