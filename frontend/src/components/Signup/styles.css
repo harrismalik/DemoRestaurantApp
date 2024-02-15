@@ -1,17 +1,17 @@
-.login-section {
+.signup-section {
     display: flex;
     justify-content: center;
     margin-top: 26vh;
     animation: slideDown 0.5s ease-out;
 }
 
-.login-form {
+.signup-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.login-form input {
+.signup-form input {
     border: none;
     border-radius: 40px;
     margin: 8px 0;
@@ -22,11 +22,11 @@
     background-color: rgba(208, 208, 208, 0.9);
 }
 
-.login-form input::-ms-fill {
+.signup-form input::-ms-fill {
     background-color: rgba(208, 208, 208, 0.9);
 }
 
-.login-form button {
+.signup-form button {
     border: none;
     border-radius: 40px;
     margin: 8px 0;

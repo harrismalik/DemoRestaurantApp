@@ -16,25 +16,23 @@ export default function Login() {
     };
     return (
         <section className={'login-section'}>
-            <form className={'login-form'} onSubmit={handleSubmit}>
-                {/*<label htmlFor="email">Email:</label>*/}
+            <form className={'login-form'} onSubmit={handleSubmit} autoComplete="off">
                 <input
                     type="email"
                     id="email"
                     value={email}
+                    placeholder={'Email'}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-
-                {/*<label htmlFor="password">Password:</label>*/}
                 <input
                     type="password"
                     id="password"
                     value={password}
+                    placeholder={'Password'}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-
                 <button type="submit">Login</button>
             </form>
         </section>
