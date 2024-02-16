@@ -24,6 +24,17 @@
     background-color: rgba(208, 208, 208, 0.9);
 }
 
+.reservation-form select {
+    border: none;
+    border-radius: 40px;
+    margin: 8px 0;
+    line-height: 1.2rem;
+    font-size: 1rem;
+    padding: 8px 16px;
+    width: 100%;
+    background-color: rgba(208, 208, 208, 0.9);
+}
+
 .reservation-form button {
     cursor: pointer;
     border: none;
@@ -42,6 +53,7 @@
     color: white;
     background-color: rgba(60, 60, 59, 0.7);
 }
+
 .tables-list {
     max-width: 80vw;
     margin: 16px 0;
