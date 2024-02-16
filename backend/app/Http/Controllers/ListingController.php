@@ -21,7 +21,7 @@ class ListingController extends BaseAPIController
             $query->with('slots')->where('booking_date',$date);
         }])->get();
 
-        return $this->sendResponse($tables,'Fetched Tables');
+        return $this->sendResponse(['tables' => $tables],'Fetched Tables');
     }
 
     public function fetchMenuList() : JsonResponse {
