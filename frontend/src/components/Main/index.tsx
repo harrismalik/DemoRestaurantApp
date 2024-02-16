@@ -8,8 +8,9 @@ import Signup from "../Signup";
 import {useSelector} from "react-redux";
 import {selectIsAuthenticated} from "../../redux/modules/auth/selectors";
 import CreateReservation from "../CreateReservation";
+import RecentReservation from "../RecentReservation";
 export default function Main() {
-    const [displaySection, setDisplaySection] = useState('home')
+    const [displaySection, setDisplaySection] = useState('recentReservation')
     const isAuthenticated = useSelector(selectIsAuthenticated)
 
     useEffect(() => {
@@ -21,10 +22,11 @@ export default function Main() {
     return (
         <section className={'section-one-home'} style={{ backgroundImage: `url(${background})` }}>
             <NavBar navigateTo={setDisplaySection}/>
-            {displaySection == 'home' && <HomeCTA/>}
+            {displaySection == 'home' && <HomeCTA navigateTo={setDisplaySection}/>}
             {displaySection == 'login' && <Login/>}
             {displaySection == 'signup' && <Signup/>}
-            {displaySection == 'createReservation' && <CreateReservation/>}
+            {displaySection == 'createReservation' && <CreateReservation navigateTo={setDisplaySection}/>}
+            {displaySection == 'recentReservation' && <RecentReservation/>}
         </section>
     )
 }
