@@ -1,0 +1,25 @@
+.aboutUs-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 18vh;
+    animation: slideDown 0.5s ease-out;
+}
+
+.aboutUs-text-div {
+    color: rgb(232, 232, 232);
+    width: 70vw;
+    margin-bottom: 10vh;
+}
+
+.aboutUs-text-div h1,
+.aboutUs-text-div p
+{
+    margin: 10px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 6px 8px;
+}
+
+@media (max-width: 768px) {
+    .aboutUs-text-div {
+        width: 90vw;
+    }
+}

@@ -1,0 +1,43 @@
+.menu-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 8vh;
+    animation: slideDown 0.5s ease-out;
+}
+
+.menu-div {
+    color: rgb(232, 232, 232);
+}
+
+.menu-div h1,
+.menu-div p
+{
+    margin: 0px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 6px 8px;
+}
+
+.menu-div p {
+    padding-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    border-style: hidden;
+    overflow: auto;
+}
+@media (max-width: 768px) {
+    table {
+        width: 100vw;
+    }
+}
+table td {
+    border: 1px solid rgb(232, 232, 232);
+    width: 28vw;
+    height: 8vh;
+    background-image: radial-gradient(black 0%, transparent 60%);
+}
+
+.menu-category {
+    font-weight: bold;
+    text-decoration: underline;
+}

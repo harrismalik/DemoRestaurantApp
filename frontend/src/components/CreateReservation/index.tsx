@@ -60,20 +60,21 @@ const CreateReservation:React.FC<CreateReservationProps> = ({navigateTo}) => {
     },[bookingDate])
 
     const getAvailableTables = (_tables:[]) => {
-      const newTables = _tables.filter(table => {
-          let included = true
-          // @ts-ignore
-          table?.bookings?.forEach(booking => {
-              // @ts-ignore
-              booking?.slots?.forEach(slot => {
-                  // @ts-ignore
-                  if(slots.includes(slot['id'])) {
-                      included = false
-                  }
-              })
-          })
-          return included
-      })
+        const comparingSlot = slot
+        const newTables = _tables.filter(table => {
+            let included = true
+            // @ts-ignore
+            table?.bookings?.forEach(booking => {
+                // @ts-ignore
+                booking?.slots?.forEach(slot => {
+                    // @ts-ignore
+                    if(comparingSlot == slot['id']) {
+                        included = false
+                    }
+                })
+            })
+            return included
+        })
         return newTables
     }
 
@@ -112,7 +113,7 @@ const CreateReservation:React.FC<CreateReservationProps> = ({navigateTo}) => {
                         />
                     </>
                 )}
-                <select name="slot" onChange={e => updateSlot(e.target.value)} id="slot">
+                <select name="slot" {...(selectedTables.length ? { disabled: true } : {})} onChange={e => updateSlot(e.target.value)} id="slot">
                     <option value="0">Select Your Slot</option>
                     { slots.map(_slot => <option value={_slot['id']}>{extractHour(_slot['start_time']) +' - '+ extractHour(_slot['end_time'])}</option>) }
                 </select>
