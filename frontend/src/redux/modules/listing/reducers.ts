@@ -12,7 +12,8 @@ const initialState: ListingState = {
     error: false,
     tables: [],
     menu: [],
-    slots: []
+    slots: [],
+    myBookings: []
 };
 
 const listingStateUpdateReducer = (state:ListingState, action:any) => {
@@ -32,6 +33,9 @@ const listingSuccessReducer = (state:ListingState, action:any) => {
             break
         case 'slots':
             state.slots = action.payload.data
+            break
+        case 'myBookings':
+            state.myBookings = action.payload.data
             break
     }
     state.updating = false

@@ -1,9 +1,10 @@
 import './styles.css'
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getSlotsRequest, getTablesRequest} from "../../redux/modules/listing/actions";
+import {getSlotsRequest, getTablesRequest, listingSuccess} from "../../redux/modules/listing/actions";
 import {selectSlots, selectTables} from "../../redux/modules/listing/selectors";
 import {bookingRequest} from "../../redux/modules/booking/actions";
+import {extractHour} from "../../helpers/helpers";
 import Cookies from "js-cookie";
 
 interface CreateReservationProps {
@@ -24,12 +25,6 @@ const CreateReservation:React.FC<CreateReservationProps> = ({navigateTo}) => {
 
     const updateSlot = (_slot:string) => setSlot(_slot=='0'?null:parseInt(_slot))
     const updateBookingDate = (_date:string) => setBookingDate(_date)
-
-    const extractHour = (_date:string) => {
-        const hr = parseInt(_date.split(':')[0])
-        const am_pm = hr>11 ? 'PM' : 'AM'
-        return (hr>12 ? hr-12 : hr).toString()+' '+am_pm
-    }
     const updateSelectedTables = (_table:number,_diningCapacity:number) => {
         if(selectedTables.includes(_table)) {
             setSelectedTables(selectedTables.filter(t => t !== _table))
@@ -50,6 +45,7 @@ const CreateReservation:React.FC<CreateReservationProps> = ({navigateTo}) => {
                 table_ids: selectedTables,
                 token
             }))
+            dispatch(listingSuccess({ type:'myBookings', data:[], message:"Empty" }))
             navigateTo('recentReservation')
         }
     }
