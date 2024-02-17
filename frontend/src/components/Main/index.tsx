@@ -14,7 +14,7 @@ import MyReservations from "../MyReservations";
 import AboutUs from "../AboutUs";
 import ContactUs from "../ContactUs";
 export default function Main() {
-    const [displaySection, setDisplaySection] = useState('about')
+    const [displaySection, setDisplaySection] = useState('home')
     const isAuthenticated = useSelector(selectIsAuthenticated)
 
     useEffect(() => {
