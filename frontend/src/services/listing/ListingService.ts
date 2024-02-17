@@ -28,6 +28,14 @@ class ListingService {
             throw new Error((error as Error).message);
         }
     }
+    static async getMyBookings(token: string): Promise<ApiResponse> {
+        try {
+            const response: AxiosResponse<ApiResponse> = await apiService.get(LISTINGS.MY_BOOKINGS,{ headers: { Authorization: "Bearer " + token } });
+            return response.data;
+        } catch (error) {
+            throw new Error((error as Error).message);
+        }
+    }
 }
 
 export default ListingService;

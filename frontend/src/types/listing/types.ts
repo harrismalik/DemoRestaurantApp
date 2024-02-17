@@ -5,6 +5,7 @@ export interface ListingState {
     tables: [];
     menu: [];
     slots: [];
+    myBookings: [];
 }
 
 export interface ListingPayload {
@@ -14,4 +15,8 @@ export interface ListingPayload {
 
 export interface GetTablesPayload {
     date: string;
+}
+
+export interface GetMyBookingsPayload {
+    token: string;
 }

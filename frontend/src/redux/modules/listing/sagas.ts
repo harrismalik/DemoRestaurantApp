@@ -4,11 +4,11 @@ import {
     listingFailure,
     listingSuccess,
     getMenuRequest,
-    getTablesRequest
+    getTablesRequest, getMyBookingsRequest
 } from './actions';
 import {ApiResponse} from "../../../types/common/types";
 import ListingService from "../../../services/listing/ListingService";
-import {GetTablesPayload} from "../../../types/listing/types";
+import {GetMyBookingsPayload, GetTablesPayload} from "../../../types/listing/types";
 
 function* handleGetTablesRequest(action: ReturnType<typeof getTablesRequest>) {
     try {
@@ -52,10 +52,26 @@ function* handleGetSlotsRequest(action: ReturnType<typeof getSlotsRequest>) {
     }
 }
 
+function* handleGetByBookingsRequest(action: ReturnType<typeof getMyBookingsRequest>) {
+    try {
+        const { token }: GetMyBookingsPayload = action.payload;
+        const listingResponse: ApiResponse = yield call(ListingService.getMyBookings, token);
+        const { error, message, data } = listingResponse;
+        if (error == true) {
+            yield put(listingFailure({ message }));
+        } else {
+            yield put(listingSuccess({ type:'myBookings', data:data['bookings'], message }));
+        }
+    } catch (error) {
+        yield put(listingFailure({ message: error instanceof Error ? error.message : 'An unknown error occurred' }));
+    }
+}
+
 function* listingSaga() {
     yield takeLatest(getTablesRequest.type, handleGetTablesRequest);
     yield takeLatest(getMenuRequest.type, handleGetMenuRequest);
     yield takeLatest(getSlotsRequest.type, handleGetSlotsRequest);
+    yield takeLatest(getMyBookingsRequest.type, handleGetByBookingsRequest);
 }
 
 export default listingSaga;
