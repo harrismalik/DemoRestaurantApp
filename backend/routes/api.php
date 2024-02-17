@@ -63,4 +63,5 @@ Route::prefix('listing')->group(function () {
     Route::get('{date}/tables',[ListingController::class,'fetchTablesByDate']);
     Route::get('menu',[ListingController::class,'fetchMenuList']);
     Route::get('slots',[ListingController::class,'getSlots']);
+    Route::get('myBookings',[ListingController::class,'fetchBookingsByUser'])->middleware('auth:api');
 });

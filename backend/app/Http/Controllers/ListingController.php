@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
 use App\Models\MenuCategory;
 use App\Models\Slot;
 use App\Models\Table;
@@ -40,5 +41,10 @@ class ListingController extends BaseAPIController
         }
 
         return $this->sendResponse(['menu' => $menu],'Fetched Menu');
+    }
+
+    public function fetchBookingsByUser() : JsonResponse {
+        $bookings = auth()->user()->bookings()->with(['slots','tables'])->get();
+        return $this->sendResponse(['bookings'=>$bookings],'Fetched your bookings.');
     }
 }
