@@ -29,9 +29,13 @@ const authenticatedReducer = (state: AuthState, action: any) => {
 }
 
 const authenticationFailedReducer = (state: AuthState, action: any) => {
-    state = initialState
+    state.isAuthenticated = false
+    state.user = {
+        name:'',
+        email:''
+    }
     state.error = true
-    state.response = action.payload
+    state.response = action.payload.message
     return state
 }
 
@@ -43,7 +47,7 @@ const logoutSuccessReducer = (state: AuthState) => {
 
 const logoutFailureReducer = (state: AuthState, action: any) => {
     state.error = true;
-    state.response = action.payload;
+    state.response = action.payload.message;
     return state
 }
 

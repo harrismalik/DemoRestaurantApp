@@ -14,9 +14,11 @@ export default function Login() {
             password
         }));
     };
+
     return (
         <section className={'login-section'}>
             <form className={'login-form'} onSubmit={handleSubmit} autoComplete="off">
+                <h4>LOGIN</h4>
                 <input
                     type="email"
                     id="email"
@@ -33,7 +35,7 @@ export default function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <button type="submit">Login</button>
+                <button>Let's go</button>
             </form>
         </section>
     )

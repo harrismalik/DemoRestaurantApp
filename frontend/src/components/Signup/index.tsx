@@ -21,6 +21,7 @@ export default function Signup() {
     return (
         <section className={'signup-section'}>
             <form className={'signup-form'} onSubmit={handleSubmit} autoComplete="off">
+                <h4>JOIN US</h4>
                 <input
                     type="text"
                     id="name"
